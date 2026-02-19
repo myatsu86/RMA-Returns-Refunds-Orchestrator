@@ -1,14 +1,14 @@
 # RMA Warranty Policy
 
-This document defines the business rules for handling Returns, Refunds, and Warranty Replacements (RMA).
+This document defines the business rules governing product returns, refunds, and warranty replacements (RMA).
 
-The policy engine evaluates requests in a predefined order to determine eligibility.
+The policy engine evaluates requests deterministically in a predefined order to determine eligibility.
 
 ---
 
-## 📌 Policy Overview
+## 📌 Decision Types
 
-The system supports the following policy decisions:
+The system produces one of the following outcomes:
 
 - `REFUND_ELIGIBLE`
 - `REPLACEMENT_ELIGIBLE`
@@ -16,7 +16,7 @@ The system supports the following policy decisions:
 
 ---
 
-# 🟢 Policy 1 — Direct Store Return (Refund Eligible)
+# 📦 Policy 1 — Direct Store Return (Refund Eligible)
 
 ### Condition
 - Purchase source is **Seagate Store**
@@ -35,7 +35,7 @@ The system supports the following policy decisions:
 
 ---
 
-# 🟡 Policy 2 — Post-30-Day Store Purchase (Warranty Only)
+# 🧾 Policy 2 — Post-30-Day Store Purchase (Warranty Only)
 
 ### Condition
 - Purchase source is **Seagate Store**
@@ -43,25 +43,25 @@ The system supports the following policy decisions:
 
 ### Outcome
 - Refund denied
-- Eligible for **warranty replacement only** (if still within warranty period)
+- Eligible for **warranty replacement only** (if within product warranty period)
 
 ---
 
-# 🔵 Policy 3 — Warranty Replacement (RMA)
+# 🔁 Policy 3 — Warranty Replacement (RMA)
 
 ### Condition
 - Product is **within warranty period** (validated by serial number)
 - **Hardware failure confirmed**
 
 ### Outcome
-- Replace with:
+- Replacement with:
   - New unit OR
   - Factory-certified replacement unit
 - Customer pays **inbound shipping**
 - Seagate covers **outbound replacement shipping**
 
 ### Requirements
-- RMA number must be issued before return shipment
+- RMA number must be issued before product is shipped
 - Product must be in **standard configuration**
   - No custom labels
   - No non-standard parts
@@ -71,7 +71,7 @@ The system supports the following policy decisions:
 
 ---
 
-# 🔴 Policy 4 — Out of Warranty
+# ⛔ Policy 4 — Out of Warranty
 
 ### Condition
 - Product is beyond warranty period
@@ -84,48 +84,38 @@ The system supports the following policy decisions:
 
 ---
 
-# ⚠️ Policy 5 — Data Responsibility (Universal Policy)
+# 🛡 Policy 5 — Data Responsibility (Universal Policy)
 
-This policy applies to **ALL return and RMA requests**.
+This policy applies to **all return and RMA requests**.
 
 ### Rules
 - Seagate bears **zero liability for data loss**
 - Customer must:
   - Back up all data
   - Wipe the drive before shipping
-- Customer must acknowledge data responsibility
-  - Required at request creation time
-  - Request cannot proceed without acknowledgment
+- Data responsibility acknowledgment is mandatory at request creation
+- If not acknowledged → request is automatically rejected
 
 ---
 
-# 🧠 Policy Evaluation Order
+# 🔎 Policy Evaluation Order
 
 The rules engine evaluates policies in the following order:
 
 1. **Data Responsibility Acknowledgment (Policy 5)**
    - If not acknowledged → `REJECTED`
 
-2. **Policy 1 — Refund Check (Within 30 Days)**
+2. **Policy 1 — Refund Eligibility (Within 30 Days)**
 
 3. **Policy 2 — Post-30-Day Store Check**
 
-4. **Policy 3 — Warranty Replacement**
+4. **Policy 3 — Warranty Replacement Eligibility**
 
 5. **Policy 4 — Out of Warranty Fallback**
 
 ---
 
-# 🎯 Design Principles
-
-- Deterministic rule evaluation
-- Audit trail per policy decision
-- Clear separation of refund vs warranty logic
-- Compliance-first data protection handling
-
----
-
-## 📌 Example Decision Outputs
+# Example Decision Scenarios
 
 | Scenario | Decision |
 |----------|----------|
@@ -137,3 +127,22 @@ The rules engine evaluates policies in the following order:
 
 ---
 
+# Design Principles
+
+- Deterministic rule evaluation
+- Clear separation of refund vs warranty logic
+- Audit-friendly policy tracing
+- Compliance-first data protection handling
+- Microservice-ready rule structure
+
+---
+
+## Purpose of This Policy Layer
+
+This structured policy design ensures:
+
+- Transparent and consistent customer handling
+- Legal compliance (data responsibility enforcement)
+- Clear auditability
+- Scalable rule engine implementation
+- Production-ready business logic modeling
