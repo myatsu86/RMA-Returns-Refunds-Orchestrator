@@ -19,7 +19,7 @@ The system produces one of the following outcomes:
 # 📦 Policy 1 — Direct Store Return (Refund Eligible)
 
 ### Condition
-- Purchase source is **Seagate Store**
+- Purchase source is **Official Store**
 - Request is within **30 days of delivery date**
 - Product condition is **like-new**
 
@@ -29,7 +29,7 @@ The system produces one of the following outcomes:
 - Typically appears on original payment method within **7 days** after processing
 
 ### Requirements
-- Customer must use **Seagate-provided return shipping label**
+- Customer must use **Manufacturer-provided return shipping label**
 - Product must be in **original / like-new condition**
 - No custom modifications allowed
 
@@ -38,7 +38,7 @@ The system produces one of the following outcomes:
 # 🧾 Policy 2 — Post-30-Day Store Purchase (Warranty Only)
 
 ### Condition
-- Purchase source is **Seagate Store**
+- Purchase source is **Official Store**
 - Request is **beyond 30 days** from delivery date
 
 ### Outcome
@@ -58,7 +58,7 @@ The system produces one of the following outcomes:
   - New unit OR
   - Factory-certified replacement unit
 - Customer pays **inbound shipping**
-- Seagate covers **outbound replacement shipping**
+- Manufacturer covers **outbound replacement shipping**
 
 ### Requirements
 - RMA number must be issued before product is shipped
@@ -89,7 +89,7 @@ The system produces one of the following outcomes:
 This policy applies to **all return and RMA requests**.
 
 ### Rules
-- Seagate bears **zero liability for data loss**
+- The Manufacturer bears **zero liability for data loss**
 - Customer must:
   - Back up all data
   - Wipe the drive before shipping
