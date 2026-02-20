@@ -1,13 +1,3 @@
-BEGIN;
-
-DO $$ BEGIN
-  CREATE DATABASE rma_db;
-EXCEPTION WHEN duplicate_database THEN NULL;
-END $$;
-
-GRANT CREATE ON SCHEMA public TO app;
-GRANT USAGE ON SCHEMA public TO app;
-
 DO $$ BEGIN
   CREATE TYPE purchase_source_enum AS ENUM ('original_store', 'third_party');
 EXCEPTION WHEN duplicate_object THEN NULL; END $$;
@@ -161,5 +151,3 @@ SELECT DISTINCT ON (ri.rma_request_id)
   ri.hardware_failure_confirmed, ri.verified_condition, ri.failure_notes, ri.condition_notes
 FROM rma_inspections ri
 ORDER BY ri.rma_request_id, ri.inspected_at DESC;
-
-COMMIT;
