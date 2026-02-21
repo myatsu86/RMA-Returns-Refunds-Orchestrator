@@ -1,4 +1,7 @@
-CREATE DATABASE rma_db;
+-- DO $$ BEGIN
+--   CREATE DATABASE rma_db;
+-- EXCEPTION WHEN duplicate_database THEN NULL;
+-- END $$;
 
 GRANT CONNECT ON DATABASE rma_db TO app;
 GRANT CREATE ON SCHEMA public TO app;

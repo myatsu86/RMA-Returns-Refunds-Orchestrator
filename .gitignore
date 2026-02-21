@@ -25,3 +25,4 @@ docker-compose.override.yml
 *.session.sql
 .gradle/
 .m2/
+venv
