@@ -1,6 +1,6 @@
 from sqlalchemy import BIGINT, String, TIMESTAMP, Enum
 from sqlalchemy.orm import Mapped, mapped_column
-from app.models.enums import RMAStatus
+from backend.app.schemas.enums import RMAStatus
 from app.db.base import Base
 
 class RefundTransaction(Base):
