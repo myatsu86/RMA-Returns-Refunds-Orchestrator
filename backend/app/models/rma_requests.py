@@ -1,7 +1,7 @@
 from sqlalchemy import BIGINT, String, DateTime, Enum, Boolean, func
 from sqlalchemy.orm import Mapped, mapped_column
 from app.db.base import Base
-from backend.app.schemas.enums import PurchaseSource, ProductCondition, RMAStatus, RMADecision
+from app.schemas.enums import PurchaseSource, ProductCondition, RMAStatus, RMADecision
 
 class RMARequest(Base):
     __tablename__ = "rma_requests"
