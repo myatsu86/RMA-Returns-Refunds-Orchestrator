@@ -1,6 +1,6 @@
 from sqlalchemy import BIGINT, TIMESTAMP, String, Enum, func, JSON
 from sqlalchemy.orm import Mapped, mapped_column
-from backend.app.schemas.enums import EventType
+from app.schemas.enums import EventType
 from app.db.base import Base
 
 class RMAEvent(Base):

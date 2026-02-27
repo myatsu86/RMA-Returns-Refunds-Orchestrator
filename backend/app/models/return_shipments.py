@@ -1,6 +1,6 @@
 from sqlalchemy import BIGINT, String, Boolean, TIMESTAMP, Enum, func
 from sqlalchemy.orm import Mapped, mapped_column
-from backend.app.schemas.enums import ShipmentDirection, ShipmentStatus
+from app.schemas.enums import ShipmentDirection, ShipmentStatus
 from app.db.base import Base
 
 class ReturnShipment(Base):

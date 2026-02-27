@@ -1,6 +1,6 @@
 from sqlalchemy import BIGINT, Boolean, String, TIMESTAMP, Enum, func
 from sqlalchemy.orm import Mapped, mapped_column
-from backend.app.schemas.enums import InspectionSource
+from app.schemas.enums import InspectionSource
 from app.db.base import Base
 
 class RMAInspection(Base):
