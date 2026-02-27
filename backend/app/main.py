@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import health, products
+from app.routers import health, products, rma
 
 app = FastAPI()
 @app.get("/")
@@ -12,3 +12,4 @@ async def health():
 
 
 app.include_router(products.router)
+app.include_router(rma.router)
