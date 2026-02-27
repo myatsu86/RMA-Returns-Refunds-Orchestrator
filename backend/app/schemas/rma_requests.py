@@ -1,17 +1,17 @@
 from datetime import date, datetime
 from typing import Optional
 from pydantic import BaseModel, ConfigDict
-from enums import PurchaseSource, ProductCondition, RMAStatus, RMADecision
+from app.schemas.enums import PurchaseSource, ProductCondition, RMAStatus, RMADecision
 
 
 class RMARequestBase(BaseModel):
     serial_number: str
-    purchase_resource: PurchaseSource
+    purchase_source: PurchaseSource
     delivery_date: date | None = None
     customer_reported_condition: ProductCondition | None = None
     data_responsibility_acknowledged: bool | None = None
 
-class RMARequestCreate(BaseModel):
+class RMARequestCreate(RMARequestBase):
     pass
 
 class RMARequestRead(BaseModel):
